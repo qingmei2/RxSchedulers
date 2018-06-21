@@ -1,9 +1,46 @@
-## RxUtils
+## RxSchedulers
+
+### How to use it
+
+**In Kotlin:**
+
+```kotlin
+Observable
+        .just(0)
+        .delay(5, TimeUnit.SECONDS)
+        .switchThread()         // the extension for kotlin
+        .subscribe({
+            Toast.makeText(this, "onNext: Int = $it", Toast.LENGTH_SHORT).show()
+        })
+```
+
+**In Java:**
+
+```Java
+Observable
+        .just(0)
+        .delay(5, TimeUnit.SECONDS)
+        .compose(new RxSchedulerTransformer())
+        .subscribe()
+```
+
+### RxSchedulerTransformer
+
+RxSchedulerTransformer is a proxy for different Reactive Transformer,So the Developer do not need to implement different **Transformers** based on different types.
+:
+
+```kotlin
+interface IRxSchedulerTransformer<T, R> : FlowableTransformer<T, R>,
+        ObservableTransformer<T, R>,
+        MaybeTransformer<T, R>,
+        SingleTransformer<T, R>,
+        CompletableTransformer
+```
 
 License
 -------
 
-    The RxUtils：MIT License
+    The RxSchedulers：MIT License
 
     Copyright (c) 2018 qingmei2
 

@@ -13,9 +13,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Observable.just(0)
+        Observable
+                .just(0)
                 .delay(5, TimeUnit.SECONDS)
-                .switchThread()
+                .switchThread()         // the extension for kotlin
                 .subscribe({
                     Toast.makeText(this, "onNext: Int = $it", Toast.LENGTH_SHORT).show()
                 })
