@@ -14,14 +14,10 @@ def routerCompilerVersion = "1.1.4"
 project.ext {
     android = [
             compileSdkVersion   : 27,
-
-            applicationId_fenrir: "cn.com.fenrir_inc.FireProtectionClient",
-            applicationId_hs    : "com.schs_ltd.FireProtectionClient",
-
-            minSdkVersion       : 16,
+            minSdkVersion       : 14,
             targetSdkVersion    : 27,
-            versionCode         : 5,
-            versionName         : "1.2.6"
+            versionCode         : 1,
+            versionName         : "0.1.0"
     ]
 
     dependencies = [
@@ -36,10 +32,7 @@ project.ext {
             "constraint-layout"            : "com.android.support.constraint:constraint-layout:1.0.2",
 
             //kotlin
-            "kotlin-android"               : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
-
-            //java8-support
-            "stream"                       : "com.annimon:stream:1.1.8",
+            "kotlin-android"               : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
 
             //rx
             "rxJava2"                      : "io.reactivex.rxjava2:rxjava:2.1.14",
@@ -55,7 +48,6 @@ project.ext {
             "retrofit-adapter-rxjava2"     : "com.squareup.retrofit2:adapter-rxjava2:${retrofit_version}",
             "retrofit-mock"                : "com.squareup.retrofit2:retrofit-mock:${retrofit_version}",
             "retrofit-converter-gson"      : "com.squareup.retrofit2:converter-gson:${retrofit_version}",
-            "retrofit-url-manager"         : "me.jessyan:retrofit-url-manager:1.2.0",
 
             //dagger
             "dagger-android"               : "com.google.dagger:dagger-android:${dagger_version}",
@@ -70,10 +62,6 @@ project.ext {
             //okHttp3
             "okhttp3"                      : "com.squareup.okhttp3:okhttp:${okhttp_version}",
             "okhttp3-logging-interceptor"  : "com.squareup.okhttp3:logging-interceptor:${okhttp_version}",
-
-            //lombok
-            "lombok"                       : "org.projectlombok:lombok:${lombok_version}",
-            "javax-annotation"             : "org.glassfish:javax.annotation:10.0-b28",
 
             //glide
             "glide"                        : "com.github.bumptech.glide:glide:${glide_version}",
@@ -91,15 +79,6 @@ project.ext {
 
             //multitype
             "multitype"                    : "me.drakeet.multitype:multitype:3.3.0",
-
-            //jpush
-            "jpush"                        : "cn.jiguang.sdk:jpush:3.1.1",
-            "jcore"                        : "cn.jiguang.sdk:jcore:1.1.9",
-
-            //other
-            "material-dialogs"             : "com.afollestad.material-dialogs:core:0.9.5.0",
-            "statusbar-util"               : "com.jaeger.statusbarutil:library:1.5.0",
-            "badge-view"                   : "com.github.luongvo:BadgeView:1.1.5",
 
             //robolectric
             "robolectric"                  : "org.robolectric:robolectric:3.3.2",
