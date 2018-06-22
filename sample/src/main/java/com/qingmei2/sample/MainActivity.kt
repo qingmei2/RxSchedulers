@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         Observable
                 .just(0)
-                .delay(5, TimeUnit.SECONDS)
+                .delay(3, TimeUnit.SECONDS)
                 .switchThread()         // the extension for kotlin
                 .subscribe({
                     Toast.makeText(this, "onNext: Int = $it", Toast.LENGTH_SHORT).show()

@@ -7,7 +7,7 @@ import io.reactivex.schedulers.Schedulers
 /**
  * The [RxSchedulerProvider] is wrapper of the schedulers, it is easily for unit testing.
  */
-class RxSchedulerProvider : SchedulerProvider {
+class RxSchedulerProvider private constructor() : SchedulerProvider {
 
     private var ioSchedulerProvider: () -> Scheduler = {
         Schedulers.io()

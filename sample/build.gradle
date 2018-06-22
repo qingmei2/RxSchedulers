@@ -29,28 +29,7 @@ dependencies {
     implementation rootProject.ext.dependencies["kotlin-android"]
     //junit
     testImplementation rootProject.ext.dependencies["junit"]
-    //espresso
-    androidTestImplementation(rootProject.ext.dependencies["espresso-core"]) {
-        exclude group: 'com.android.support', module: 'support-annotations'
-        exclude group: 'com.google.code.findbugs', module: 'jsr305'
-    }
-    androidTestImplementation(rootProject.ext.dependencies["espresso-contrib"]) {
-        exclude module: 'support-annotations'
-        exclude module: 'support-v4'
-        exclude module: 'design'
-        exclude module: 'recyclerview-v7'
-    }
-    implementation(rootProject.ext.dependencies["espresso-idling-resource"]) {
-        exclude module: 'support-annotations'
-    }
-    androidTestImplementation(rootProject.ext.dependencies["espresso-test-runner"]) {
-        exclude module: 'support-annotations'
-    }
-    androidTestImplementation(rootProject.ext.dependencies["espresso-test-rules"]) {
-        exclude module: 'support-annotations'
-    }
-//    implementation project(':rxschedulers')
-//    implementation project(':rxschedulers_support_kt')
 
-    implementation 'com.github.qingmei2.rxschedulers:rxschedulers_support_kt:0.1.0'
+    implementation project(':rxschedulers')
+    implementation project(':rxschedulers_support_kt')
 }

@@ -28,33 +28,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //junit
+    testImplementation rootProject.ext.dependencies["junit"]
 
     implementation rootProject.ext.dependencies["kotlin-android"]
     api rootProject.ext.dependencies["rxJava2"]
     api rootProject.ext.dependencies["rxandroid"]
-
-    //junit
-    testImplementation rootProject.ext.dependencies["junit"]
-    //espresso
-    androidTestImplementation(rootProject.ext.dependencies["espresso-core"]) {
-        exclude group: 'com.android.support', module: 'support-annotations'
-        exclude group: 'com.google.code.findbugs', module: 'jsr305'
-    }
-    androidTestImplementation(rootProject.ext.dependencies["espresso-contrib"]) {
-        exclude module: 'support-annotations'
-        exclude module: 'support-v4'
-        exclude module: 'design'
-        exclude module: 'recyclerview-v7'
-    }
-    implementation(rootProject.ext.dependencies["espresso-idling-resource"]) {
-        exclude module: 'support-annotations'
-    }
-    androidTestImplementation(rootProject.ext.dependencies["espresso-test-runner"]) {
-        exclude module: 'support-annotations'
-    }
-    androidTestImplementation(rootProject.ext.dependencies["espresso-test-rules"]) {
-        exclude module: 'support-annotations'
-    }
 }
 
 repositories {
