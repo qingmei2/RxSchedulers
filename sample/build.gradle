@@ -49,6 +49,8 @@ dependencies {
     androidTestImplementation(rootProject.ext.dependencies["espresso-test-rules"]) {
         exclude module: 'support-annotations'
     }
-    implementation project(':rxschedulers')
-    implementation project(':rxschedulers_support_kt')
+//    implementation project(':rxschedulers')
+//    implementation project(':rxschedulers_support_kt')
+
+    implementation 'com.github.qingmei2.rxschedulers:rxschedulers_support_kt:0.1.0'
 }

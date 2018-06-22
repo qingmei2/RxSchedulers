@@ -1,6 +1,19 @@
 ## RxSchedulers
 
-### How to use it
+[ ![Download](https://api.bintray.com/packages/mq2553299/maven/rxschedulers_support_kt/images/download.svg) ](https://bintray.com/mq2553299/maven/rxschedulers_support_kt/_latestVersion)
+
+RxSchedulers is the schedulers tools for RxJava2 in Android.
+
+## Usage
+
+### Add its dependency
+
+```groovy
+implementation 'com.github.qingmei2.rxschedulers:rxschedulers:0.1.0'
+
+// the kotlin extension
+implementation 'com.github.qingmei2.rxschedulers:rxschedulers_support_kt:0.1.0'
+```
 
 **In Kotlin:**
 
@@ -8,7 +21,9 @@
 Observable
         .just(0)
         .delay(5, TimeUnit.SECONDS)
-        .switchThread()         // the extension for kotlin
+        .switchThread()                             // the extension for kotlin
+//      .subscribeOn(Schedulers.io())               // instead of it
+//      .observerOn(AndroidScheduler.mainThread())
         .subscribe({
             Toast.makeText(this, "onNext: Int = $it", Toast.LENGTH_SHORT).show()
         })
@@ -21,6 +36,8 @@ Observable
         .just(0)
         .delay(5, TimeUnit.SECONDS)
         .compose(new RxSchedulerTransformer())
+//      .subscribeOn(Schedulers.io())               // instead of it
+//      .observerOn(AndroidScheduler.mainThread())
         .subscribe()
 ```
 
@@ -30,12 +47,23 @@ RxSchedulerTransformer is a proxy for different Reactive Transformer,So the Deve
 :
 
 ```kotlin
-interface IRxSchedulerTransformer<T, R> : FlowableTransformer<T, R>,
+interface DelegateTransformer<T, R> : FlowableTransformer<T, R>,
         ObservableTransformer<T, R>,
         MaybeTransformer<T, R>,
         SingleTransformer<T, R>,
         CompletableTransformer
+        
+class RxSchedulerTransformer<T>(
+        private val schedulerProvider: SchedulerProvider = RxSchedulerProvider.INSTANCE
+) : DelegateTransformer<T, T> {
+    //......
+}
 ```
+
+### RxSchedulerProvider
+
+RxSchedulerProvider is single instance for controlling threads, RxSchedulerProvider is single instance for controlling threads, it is easily for unit testing and managing
+(using it by dependency injection tools is a good idea, like **[Dagger2](https://github.com/google/dagger)**).
 
 License
 -------
