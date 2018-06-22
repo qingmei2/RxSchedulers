@@ -9,10 +9,10 @@ RxSchedulers is the schedulers tools for RxJava2 in Android.
 ### Add its dependency
 
 ```groovy
-implementation 'com.github.qingmei2.rxschedulers:rxschedulers:0.1.0'
+implementation 'com.github.qingmei2.rxschedulers:rxschedulers:0.1.1'
 
 // the kotlin extension
-implementation 'com.github.qingmei2.rxschedulers:rxschedulers_support_kt:0.1.0'
+implementation 'com.github.qingmei2.rxschedulers:rxschedulers_support_kt:0.1.1'
 ```
 
 **In Kotlin:**
@@ -64,6 +64,10 @@ class RxSchedulerTransformer<T>(
 
 RxSchedulerProvider is single instance for controlling threads, RxSchedulerProvider is single instance for controlling threads, it is easily for unit testing and managing
 (using it by dependency injection tools is a good idea, like **[Dagger2](https://github.com/google/dagger)**).
+
+## Another author's libraries using RxJava:
+
+* **[RxImagePicker](https://github.com/qingmei2/RxImagePicker)**: The library which choosing pictures from the Camera or Gallery in Android.
 
 License
 -------
